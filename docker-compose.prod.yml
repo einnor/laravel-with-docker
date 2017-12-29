@@ -10,3 +10,12 @@ services:
     environment:
       - "DB_HOST=database"
       - "REDIS_HOST=cache"
+
+  # The Web Server
+  web:
+    image: laravel-with-docker-web-image
+    volumes:
+      - "${LE_DIR}:/etc/letsencrypt"
+    ports:
+      - 80:80
+      - 443:443
